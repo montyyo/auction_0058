@@ -55,20 +55,21 @@ public class Auction
      */
     public void makeABid(int lotNumber, Person bidder, long value)
     {
-        Lot selectedLot = getLot(lotNumber);
+        Lot selectedLot = getLot(lotNumber); //primer objeto lot 
         if(selectedLot != null) {
-            Bid bid = new Bid(bidder, value);
-            boolean successful = selectedLot.bidFor(bid);
+            //Bid bid = new Bid(bidder, value);//2º objeto var local bid (puja)
+            //podemos debido a que pasamos el objeto a metodo bit for directamente
+            boolean successful = selectedLot.bidFor(new Bid(bidder, value) );//objeto anonimo tipo bid
             if(successful) {
                 System.out.println("The bid for lot number " +
                                    lotNumber + " was successful.");
             }
             else {
                 // Report which bid is higher.
-                Bid highestBid = selectedLot.getHighestBid();
+                //Bid highestBid = selectedLot.getHighestBid(); //3º objeto highestbid --mayor puja
                 System.out.println("Lot number: " + lotNumber +
                                    " already has a bid of: " +
-                                   highestBid.getValue());
+                          selectedLot.getHighestBid().getValue());//solo usamos el 3º objeto aqui
             }
         }
     }
