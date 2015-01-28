@@ -102,4 +102,27 @@ public class Auction
             return null;
         }
     }
+    
+    /**
+     * añade un método denominado close a la clase Auction.
+     * Debe mostrar los detalles de todos los items que se estén subastando. 
+     * De aquellos por los que haya habido pujas se debe indicar el nombre de la
+     * persona que ha hecho la puja más alta y el valor de dicha puja; del resto 
+     * debe indicar que no ha habido pujas.
+     */
+    public void close()
+    {
+     
+        for( Lot objeto : lots)
+        {
+            System.out.println("detalles" + objeto.toString());
+            
+            if (objeto.getHighestBid() != null)
+            {
+                System.out.println(lots.get(0).getHighestBid().getBidder().getName());
+            }
+            
+        }
+        
+    }
 }
