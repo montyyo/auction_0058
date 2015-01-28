@@ -119,10 +119,32 @@ public class Auction
             
             if (objeto.getHighestBid() != null)
             {
-                System.out.println(lots.get(0).getHighestBid().getBidder().getName());
+                System.out.println(objeto.getHighestBid().getBidder().getName());
             }
             
         }
         
+    }
+    
+    /**
+     * método denominado getUnsold a la clase Auction que devuelva una colección
+     * de todos los items por los que no habido ninguna puja en este momento y no imprima nada por pantalla.
+     */
+    public ArrayList getUnsold()
+    {
+        
+        ArrayList<Lot> lotes = new ArrayList<Lot>();
+        
+        
+        for (Lot objeto : lots)
+        {
+           if(objeto.getHighestBid() ==  null)
+           {
+              lotes.add(objeto);
+             
+           }
+            
+        }
+        return lotes;
     }
 }
